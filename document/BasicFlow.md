@@ -10,7 +10,7 @@ graph LR
 	B --> C
 ```
 
-![image-20191104113606360](E:\Workspace\gourmethunter\document\image-20191104113606360.png)
+![image-20191104113606360](https://raw.githubusercontent.com/GourmetHunter/gourmethunter/master/document/image-20191104113606360.png)
 
 # Basic Functions
 
