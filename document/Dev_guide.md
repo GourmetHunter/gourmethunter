@@ -19,7 +19,7 @@ master -.-> master-merge(master merge)
 front-merge --> master-merge
 ```
 
-![image-20191104185446699](E:\Workspace\gourmethunter\document\image-20191104185446699.png)
+![image-20191104185446699](https://raw.githubusercontent.com/GourmetHunter/gourmethunter/master/document/image-20191104185446699.png)
 
 # Dev Steps
 
