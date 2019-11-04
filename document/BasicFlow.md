@@ -31,7 +31,7 @@ graph LR
 
 1. Store dish's evaluation **StoreDishEvaluation**
 2. Compute dish's evaluation **ComputeDishEvaluation**
-3. Update dish's evaluation **UpdateStoreEvaluation**
+3. Update dish's evaluation **UpdateDishEvaluation**
 4. Load dish's information **LoadDish**
 
 ### Ranking Functions
