@@ -54,6 +54,7 @@
 # Recommendation Database
 ### ***Graph database***
 - Neo4j
+- GraphQL
 - ...
 
 ### ***Document database***
