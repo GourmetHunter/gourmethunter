@@ -8,46 +8,74 @@
     name: <storename>,
     address: <storeaddress>,
     _id: <HASH of name and address !Unique>
-    dishes: [
-        {
-            name: <dishname>,
-            image: <dishimage>,
-            // evaluate : [salubrious, set up, satisfied, price]
-            evaluate: <[...]>,
-            category: [[...]]
-        },...,
-    ],
-    image: <[...]>
-    //evaluate: [clean, serve, food quality, comfortable]
-    evaluate: <[...]>
-    style: [[...]]
+    dishes: [dish_id,..],
+    images: <[...]>
+    // /images/stores/<store hash>/[...].png // store's image
+    // evaluate: [clean, serve, food quality, comfortable]
+    evaluate: {
+             clean,
+             serve,
+             food_quanlity,
+             comfortable
+             },
+    [style: [...]]
 },..]
 ```
 
+# Store Owners
+
+```js
+[{
+    id_user,
+    id_store
+}]
+```
+
+
+
 # Dishes Structure
+
 ```js
 [{
     name: <dishname>,
-    image: <dishimage>,
+    images: [...], //path of images
     _id: <HASH of dishs name and stores name !Unique>
-    // evaluate : [salubrious, set up, satisfied, price]
-    evaluate: <[...]>,
-    category: [[...]],
-    store:{
-        name: <storename>,
-        address: <storeaddresss>,
-        image: <[...]>,
-        evaluate: <[...]>
-    }
+    // evaluate : salubrious, set up, satisfied, price
+    evaluate: {
+		salubrious,
+    	setup,
+    	satisfied,
+    	price
+	},
+    [category: [...]],
+    id_store
 },..]
 ```
 
 # Users Structure
 ```js
 [{
-    username: <username>,
-    password: <encrypted password>,
-    _id: <HASH of username !Unique>
+    local:{
+        <email>,
+        <username>,
+        <HASHed password SHA1>,
+    },
+    google:{
+    	<email>,
+    	<_id>
+	},
+    method,
+   	[gender],
+    [address],
+    [birthday],
+    [name_full],
+    [phone],
+    followers: [...], // _id of users who follow this user
+    following: [...], // _id of users who followed by this user
+    <avatar>, // need default image for new user _ this is a path of image
+   			 // /images/users/<username _ hash>/[....].png
+    favorite_stores:[...], // _ids of favorite stores
+    favorite_dishes:[...], // _ids of favorite dishes
 }]
 ```
 
@@ -59,7 +87,14 @@
 [{
     user_id,
     dish_id,
-    evaluate: [...] // dish's evaluation
+    evaluate: {
+		salubrious,
+    	setup,
+    	satisfied,
+    	price
+	}, // dish's evaluation
+    date,
+    _id
 },...]
 ```
 
@@ -69,7 +104,15 @@
 [{
     user_id,
     store_id,
-    evaluate: [...] // store's evaluation
+    //evaluate: [clean, serve, food quality, comfortable]
+    evaluate: {
+    	clean,
+        serve,
+        food_quality,
+        comfortable
+    },
+    date,
+    _id
 },...]
 ```
 

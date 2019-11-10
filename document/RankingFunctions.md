@@ -18,7 +18,7 @@
 {
     success, //true, false
     data:{
-        stores: <[...]> // list of ranked stores
+        stores: <[{/*lay het tron*/},..]> // list of ranked stores
         <top_k>,
        	[style],
         ... // other params

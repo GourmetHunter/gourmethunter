@@ -1,31 +1,34 @@
 # LoadStore
 
-***Input*** : Void 
+***Input*** : store_id
 
 ***Output*** :
 
 ```js
-{
-    name: <storename>,
-    address: <storeaddress>,
-    _id: <HASH of name and address !Unique>
-    dishes: [
-        {
-            name: <dishname>,
-            image: <dishimage>,
-            // evaluate : [salubrious, set up, satisfied, price]
-            evaluate: <[...]>,
-            category: [[...]]
-        },...,
-    ],
-    image: <[...]>
-    //evaluate: [clean, serve, food quality, comfortable]
-    evaluate: <[...]>
-    style: [[...]]
+{	
+    success, // true, false
+    data:{
+        name: <storename>,
+        address: <storeaddress>,
+        _id: <HASH of name and address !Unique>
+        // need to load dishes
+        dishes: [
+            {
+                name: <dishname>,
+                image: <dishimage>, // the first image
+                evaluate: {salubrious, set up, satisfied, price},
+                [category: [...]]
+            },...,
+        ],
+        images: <[...]>,
+        evaluate: {clean, serve, food quality, comfortable},
+        [style: [...]]
+	},
+    message
 }
 ```
 
-# StoreStoreEvaluation
+# SaveStoreEvaluation
 
 ***Input*** : 
 
@@ -33,7 +36,7 @@
 {
     user_id,
     store_id,
-    evaluate: [...] // store's evaluation
+    evaluate: {} // store's evaluation
 }
 ```
 
@@ -44,7 +47,8 @@
     success, //true, false
     data: { user_id,
             store_id,
-            evaluate: [...]},
+            evaluate: {}
+          },
     message
 }
 ```
@@ -58,7 +62,7 @@
 ```js
 {
     store_id,
-    evaluate: [...] // store's evaluation
+    evaluate: {} // store's evaluation
 }
 ```
 
@@ -69,7 +73,7 @@
 ```js
 {
     store_id,
-    evaluate: [...] // store's evaluation
+    evaluate: {} // store's evaluation
 }
 ```
 
@@ -79,7 +83,8 @@
 {
     success, //true, false
     data: { store_id,
-            evaluate: [...]},
+            evaluate: {}
+          },
     message
 }
 ```

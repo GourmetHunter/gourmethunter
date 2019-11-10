@@ -1,4 +1,4 @@
-# StoreDishEvaluation
+# SaveDishEvaluation
 
 ***Input*** :
 
@@ -6,7 +6,7 @@
 {
     user_id,
     dish_id,
-    evaluate // dish's evaluation
+    evaluate: {} // dish's evaluation
 }
 ```
 
@@ -18,7 +18,7 @@
     data: {
         user_id,
         dish_id,
-        evaluate // dish's evaluation
+        evaluate: {} // dish's evaluation
     },
     message
 }
@@ -33,7 +33,7 @@
 ```js
 {
     dish_id,
-    evaluate // dish's evaluation
+    evaluate: {}// dish's evaluation
 }
 ```
 
@@ -44,7 +44,7 @@
 ```js
 {
     dish_id,
-    evaluate // dish's evaluation
+    evaluate: {} // dish's evaluation
 }
 ```
 
@@ -57,7 +57,7 @@
     success,
     data : {
         dish_id,
-        evaluate // dish's evaluation
+        evaluate: {} // dish's evaluation
     },
     message
 }
@@ -72,16 +72,17 @@
 ```js
 {
     name: <dishname>,
-    image: <dishimage>,
+    images: [...],
     _id: <HASH of dishs name and stores name !Unique>
     // evaluate : [salubrious, set up, satisfied, price]
-    evaluate: <[...]>,
-    category: [[...]],
+    evaluate: {},
+    [category: [...]],
+    price,
     store:{
         name: <storename>,
         address: <storeaddresss>,
-        image: <[...]>,
-        evaluate: <[...]>
+        image,// hinh dai dien
+        evaluate: {}
     }
 }
 ```

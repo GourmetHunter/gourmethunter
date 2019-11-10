@@ -23,7 +23,7 @@ graph LR
 ### [Store Functions](https://github.com/GourmetHunter/gourmethunter/blob/master/document/StoreFunctions.md)
 
 1. Load store's information **LoadStore**
-2. Store store's evaluation (use for 1 user) **StoreStoreEvaluation**
+2. Store store's evaluation (use for 1 user) **SaveStoreEvaluation**
 3. Compute store's evaluation **ComputeStoreEvaluation**
 4. Update store's evaluation **UpdateStoreEvaluation**
 
