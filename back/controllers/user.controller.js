@@ -1,5 +1,6 @@
 const User = require("../models/user.model");
-
+const config = require('../config/helper');
+const jwt=require('jsonwebtoken');
 //Load input validation
 const validateRegisterInput = require("../validation/user.register");
 const validateLoginInput = require("../validation/user.login");
@@ -59,35 +60,42 @@ const login = (req, res) => {
         error: "error"
       });
     }
-    console.log(result);
     if (!result) {
-      console.log("alo");
       return res.status(400).json({
-        error: "user khong ton tai"
+        error: "user not exist"
       });
-    } else {
-      if (!result.authenticate(req.body.password)) {
-        return res.status(403).json({
-          error: "sai mat khau"
-        });
-      } else {
-        res.status(200).json({
-          message: "ok"
-        });
-      }
     }
+    if (!result.authenticate(req.body.password)) {
+      return res.status(403).json({
+        error: "email or password dont match"
+      });
+    }
+    const token = jwt.sign({
+      data: result._id
+    }, config.jwtSecret, { expiresIn: '1h' });
+
+    res.status(200).json({
+      message: "login success",
+      data: { token },
+      success: true
+    });
   });
 };
 
 const googleOAuth = async (req, res) => {
-    return res.json({
-        user: { _id: req.user.id}
-    });
+  const token = jwt.sign({
+    data:req.user._id
+  }, config.jwtSecret, { expiresIn: '1h' });
+  return res.json({
+    message: "login success",
+    data: { token },
+    success: true
+  });
 }
 
 module.exports = {
-    register: register,
-    login: login,
-    googleOAuth:googleOAuth
+  register: register,
+  login: login,
+  googleOAuth: googleOAuth
 }
 
