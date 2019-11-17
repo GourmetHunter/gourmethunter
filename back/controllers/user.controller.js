@@ -3,7 +3,7 @@ const User = require("../models/user.model");
 //Load input validation
 const validateRegisterInput = require("../validation/user.register");
 const validateLoginInput = require("../validation/user.login");
-
+// test thu
 const register = (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
   // Check validation
