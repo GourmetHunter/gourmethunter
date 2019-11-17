@@ -3,11 +3,13 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const userRoute=require('./routes/user.route');
-const PORT = 4000;
+const config=require('./config/helper');
+const PORT = config.port;
 
 app.use(bodyParser.json());
 
-const databaseURI='mongodb+srv://huyhoang:hoang1001@cluster0-sh1mj.mongodb.net/test?retryWrites=true&w=majority';
+
+const databaseURI=config.mongoUri;
 mongoose.connect( databaseURI, _mongo_connected ,{useUnifiedTopology: true});
 
 function _mongo_connected( error) {
@@ -18,8 +20,6 @@ function _mongo_connected( error) {
 }
 
 app.use('/user',userRoute);
-//localhost:4000/user/register
-//localhost:4000/user/login
 
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);

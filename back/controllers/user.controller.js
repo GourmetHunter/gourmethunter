@@ -1,6 +1,7 @@
 const User = require('../models/user.model');
 
 const register = (req, res) => {
+    console.log(req.body);
     User.findOne({ "local.email": req.body.email }, (err, result) => {
         if (err) {
             return res.status(400).json({
@@ -46,9 +47,7 @@ const login = (req, res) => {
                 error: 'error'
             });
         }
-        console.log(result)
         if (!result) {
-            console.log('alo');
             return res.status(400).json({
                 error: 'user khong ton tai'
             })
@@ -68,7 +67,14 @@ const login = (req, res) => {
     })
 }
 
+const googleOAuth = async (req, res) => {
+    return res.json({
+        user: { _id: req.user.id}
+    });
+}
+
 module.exports = {
     register: register,
-    login: login
+    login: login,
+    googleOAuth:googleOAuth
 }
