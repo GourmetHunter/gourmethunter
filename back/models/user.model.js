@@ -65,16 +65,6 @@ userSchema
     return this._password
   });
 
-
-userSchema.path('local.hashed_password').validate(function (v) {
-  if (this._password && this._password.length < 6) {
-    this.invalidate('password', 'Password must be at least 6 characters.')
-  }
-  if (this.isNew && !this._password) {
-    this.invalidate('password', 'Password is required')
-  }
-}, null);
-
 userSchema.methods = {
   authenticate: function (plainText) {
     return this.encryptPassword(plainText) === this.local.hashed_password;
