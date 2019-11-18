@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
-import {LoginForm} from './Pages/Login/LoginForm';
+import { LogInSignIn } from './Pages/LoginSignIn/LogInSignIn';
+
 function App() {
-  return (
-    <LoginForm/>
-  );
+  return <LogInSignIn/>
 }
 
 export default App;
